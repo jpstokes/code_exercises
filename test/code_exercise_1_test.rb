@@ -5,6 +5,7 @@ class CodeExercise1Test < Minitest::Test
   def setup
     @ce = CodeExercise1.new
   end
+
   def test_arrays
     # simple cases
     assert_equal(4, @ce.smallest_absent_int([1,2,3]))

@@ -2,26 +2,18 @@ class CheckOut
 
   def initialize(rules)
     @rules = rules
-    @count = {}
-    @specials = {}
+    @item_list = {}
+    @on_special_list = {}
   end
 
   def scan(item)
-    # count occurences of products
-    if @count[item].nil?
-      @count[item] = 1
-    else
-      @count[item] += 1
-    end
+    # item_list occurences of products
+    @item_list[item].nil?  ? @item_list[item] = 1 : @item_list[item] += 1
 
-    # if qty matches requred quantity save in specials list
-    if find_rule(item).has_key?(:special) && @count[item] == required_quantity(item)
-      if @specials[item].nil?
-        @specials[item] = 1
-      else
-        @specials[item] += 1
-      end
-      @count.delete(item)
+    # if qty matches requred quantity save in on_special_list list
+    if find_rule(item).has_key?(:special) && @item_list[item] == required_quantity(item)
+      @on_special_list[item].nil?  ? @on_special_list[item] = 1 : @on_special_list[item] += 1
+      @item_list.delete(item)
     end
   end
 
@@ -29,14 +21,10 @@ class CheckOut
     sum = 0
 
     # process regular orders
-    @count.keys.each do |key|
-      sum += @count[key] * unit_price(key)
-    end
+    @item_list.keys.each { |key| sum += @item_list[key] * unit_price(key) }
 
-    # process specials
-    @specials.keys.each do |key|
-      sum += @specials[key] * special_price(key)
-    end
+    # process on_special_list
+    @on_special_list.keys.each { |key| sum += @on_special_list[key] * special_price(key) }
 
     sum
   end
