@@ -1,1 +1,1 @@
-web: bundle exec ruby lib/telegram_bot.rb
+worker: bundle exec ruby ./bin/run
