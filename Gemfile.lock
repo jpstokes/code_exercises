@@ -44,5 +44,8 @@ DEPENDENCIES
   minitest (~> 5.3.4)
   telegram-bot-ruby
 
+RUBY VERSION
+   ruby 2.5.1p57
+
 BUNDLED WITH
    1.17.0.pre.1
