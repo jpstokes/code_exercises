@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/telegram_bot.rb'
+
+TelegramBot::Server.new.listen_to_telegram_bot
