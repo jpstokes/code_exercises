@@ -1,1 +1,1 @@
-web: bundle exec ruby ./bin/run
+web: ruby ./bin/run
