@@ -1,13 +1,48 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    axiom-types (0.1.1)
+      descendants_tracker (~> 0.0.4)
+      ice_nine (~> 0.11.0)
+      thread_safe (~> 0.3, >= 0.3.1)
+    block_io (1.2.0)
+      ecdsa (~> 1.2, >= 1.2.0)
+      httpclient (~> 2.8, >= 2.8.0)
+      oj (~> 3.3, >= 3.3.5)
+      pbkdf2-ruby (~> 0.2, >= 0.2.1)
+    coercible (1.0.0)
+      descendants_tracker (~> 0.0.1)
+    descendants_tracker (0.0.4)
+      thread_safe (~> 0.3, >= 0.3.1)
+    ecdsa (1.2.0)
+    equalizer (0.0.11)
+    faraday (0.15.4)
+      multipart-post (>= 1.2, < 3)
+    httpclient (2.8.3)
+    ice_nine (0.11.2)
+    inflecto (0.0.2)
     minitest (5.3.5)
+    multipart-post (2.0.0)
+    oj (3.7.6)
+    pbkdf2-ruby (0.2.1)
+    telegram-bot-ruby (0.8.6.1)
+      faraday
+      inflecto
+      virtus
+    thread_safe (0.3.6)
+    virtus (1.0.5)
+      axiom-types (~> 0.1)
+      coercible (~> 1.0)
+      descendants_tracker (~> 0.0, >= 0.0.3)
+      equalizer (~> 0.0, >= 0.0.9)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  block_io (~> 1.2)
   minitest (~> 5.3.4)
+  telegram-bot-ruby
 
 BUNDLED WITH
    1.17.0.pre.1
