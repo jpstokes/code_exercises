@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
 require_relative '../lib/telegram_bot.rb'
-require 'byebug'
 
 TelegramBot::Server.new.listen_to_telegram_bot
