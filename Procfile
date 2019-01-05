@@ -1,1 +1,1 @@
-web: ruby ./bin/run
+web: ruby ./bin/bot
