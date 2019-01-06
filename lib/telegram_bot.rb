@@ -61,7 +61,6 @@ module TelegramBot
               end
             end
           rescue Exception => e
-            byebug
             bot.api.send_message(chat_id: message.chat.id, text: e.message)
           end
         end
