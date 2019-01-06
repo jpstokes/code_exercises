@@ -1,1 +1,1 @@
-web: ruby ./bin/bot
+worker: ruby ./bin/bot
