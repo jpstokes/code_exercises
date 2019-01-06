@@ -40,6 +40,7 @@ module TelegramBot
           else
             user = User.new(message.from)
             user_message_counts[user.id].nil? ? user_message_counts[user.id] = 1 : user_message_counts[user.id] += 1
+            bot.api.send_message(chat_id: message.chat.id, text: "Message sent successfully.")
             if user_message_counts[user.id] == 3
               # award user with bitcoin
               result = BlockIoClient.new.transfer_funds_to(user)
@@ -47,13 +48,13 @@ module TelegramBot
               bot.api.send_message(chat_id: message.chat.id, text: "Congrats, #{message.from.first_name}, you've earned $1 worth of bitcoin!")
               user_message_counts.delete(user.id)
             else
-              bot.api.send_message(chat_id: message.chat.id, text: "Interesting!")
+              bot.api.send_message(chat_id: message.chat.id, text: "Message tally: #{user_message_counts[user.id]}")
             end
           end
         end
       end
-    rescue
-      # TODO: log error
+    rescue Exceptions => e
+      bot.api.send_message(chat_id: message.chat.id, text: e.message)
     end
   end
 
@@ -65,13 +66,17 @@ module TelegramBot
     def transfer_funds_to(user)
       from_address = get_or_create_address_by_label(DEFAULT_LABEL)
       to_address = get_or_create_address_by_label(user.block_io_label)
-      BlockIo.withdraw_from_addresses(amounts: calculate_1_usd_of_bitcoin, from_addresses: from_address, to_addresses: to_address)
-      true
-    rescue Exception
-      false
+      transfer_amount = calculate_1_usd_of_bitcoin.to_f
+      raise Exception.new('Transfer amount exceeds current balance') if transfer_amount > current_balance
+      BlockIo.withdraw_from_addresses(amounts: transfer_amount, from_addresses: from_address, to_addresses: to_address)
     end
 
     private
+
+      def current_balance
+        response = BlockIo.get_balance
+        response['data']['available_balance'].to_f
+      end
 
       def get_or_create_address_by_label(label)
         response = BlockIo.get_address_by_label(label: label)
