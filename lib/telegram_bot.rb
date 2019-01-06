@@ -66,7 +66,7 @@ module TelegramBot
     def transfer_funds_to(user)
       from_address = get_or_create_address_by_label(DEFAULT_LABEL)
       to_address = get_or_create_address_by_label(user.block_io_label)
-      transfer_amount = calculate_1_usd_of_bitcoin.to_f
+      transfer_amount = calculate_1_usd_of_bitcoin
       raise Exception.new('Transfer amount exceeds current balance') if transfer_amount > current_balance
       BlockIo.withdraw_from_addresses(amounts: transfer_amount, from_addresses: from_address, to_addresses: to_address)
     end
@@ -90,7 +90,7 @@ module TelegramBot
         # hide following line since BlockIo doesn't provide value for test accounts
         # price = BlockIo.get_current_price(price_base: 'USD')
         price = 3834.655
-        (1 / price).round(8).to_s
+        (1 / price).round(8)
       end
   end
 
