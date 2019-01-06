@@ -1,4 +1,4 @@
-# code_exercises
+# Code Excercises
 
 Code excercises can be evaluated by download repo and running code excercises in rails console.
 
