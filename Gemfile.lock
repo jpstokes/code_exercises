@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.5.2)
+      public_suffix (>= 2.0.2, < 4.0)
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
@@ -10,39 +12,60 @@ GEM
       httpclient (~> 2.8, >= 2.8.0)
       oj (~> 3.3, >= 3.3.5)
       pbkdf2-ruby (~> 0.2, >= 0.2.1)
+    byebug (10.0.2)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     ecdsa (1.2.0)
     equalizer (0.0.11)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
+    hashdiff (0.3.8)
     httpclient (2.8.3)
     ice_nine (0.11.2)
     inflecto (0.0.2)
+    minispec-metadata (2.0.0)
+      minitest
     minitest (5.3.5)
+    minitest-vcr (1.4.0)
+      minispec-metadata (~> 2.0)
+      minitest (>= 4.7.5)
+      vcr (>= 2.9)
     multipart-post (2.0.0)
     oj (3.7.6)
     pbkdf2-ruby (0.2.1)
+    public_suffix (3.0.3)
+    safe_yaml (1.0.4)
     telegram-bot-ruby (0.8.6.1)
       faraday
       inflecto
       virtus
     thread_safe (0.3.6)
+    vcr (4.0.0)
     virtus (1.0.5)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
       descendants_tracker (~> 0.0, >= 0.0.3)
       equalizer (~> 0.0, >= 0.0.9)
+    webmock (3.5.1)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   block_io (~> 1.2)
+  byebug
   minitest (~> 5.3.4)
+  minitest-vcr
   telegram-bot-ruby
+  vcr
+  webmock
 
 RUBY VERSION
    ruby 2.5.1p57

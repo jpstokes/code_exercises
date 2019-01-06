@@ -1,5 +1,4 @@
-require 'minitest/autorun'
-require_relative '../lib/code_exercise_1.rb'
+require './test/test_helper.rb'
 
 class CodeExercise1Test < Minitest::Test
   def setup

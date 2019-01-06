@@ -8,10 +8,10 @@ module TelegramBot
   class User
     attr_reader :id, :first_name, :last_name, :full_name
 
-    def initialize(user)
-      @first_name = user.first_name
-      @last_name = user.last_name
-      @id = user.id
+    def initialize(first_name:, last_name:, id:)
+      @first_name = first_name
+      @last_name = last_name
+      @id = id
     end
 
     def full_name
@@ -43,7 +43,11 @@ module TelegramBot
             when '/stop'
               bot.api.send_message(chat_id: message.chat.id, text: "Bye, #{message.from.first_name}")
             else
-              user = User.new(message.from)
+              user = User.new(
+                id: message.from.id,
+                first_name: message.from.first_name,
+                last_name: message.from.last_name
+              )
               user_message_counts[user.id].nil? ? user_message_counts[user.id] = 1 : user_message_counts[user.id] += 1
               bot.api.send_message(chat_id: message.chat.id, text: "Message sent successfully.")
               if user_message_counts[user.id] == 3
@@ -61,7 +65,6 @@ module TelegramBot
               end
             end
           rescue Exception => e
-            byebug
             bot.api.send_message(chat_id: message.chat.id, text: e.message)
           end
         end
@@ -96,7 +99,7 @@ module TelegramBot
         BlockIo.get_address_balance addresses: addresses
       end
       if format == :usd
-        '%.2f' % (response['data']['available_balance'].to_f * usd_value).round(2)
+        ('%.2f' % (response['data']['available_balance'].to_f * usd_value).round(2)).to_f
       else
         response['data']['available_balance'].to_f
       end

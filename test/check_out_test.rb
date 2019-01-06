@@ -1,5 +1,4 @@
-require 'minitest/autorun'
-require_relative '../lib/check_out.rb'
+require './test/test_helper.rb'
 
 class CodeExercise1Test < Minitest::Test
 

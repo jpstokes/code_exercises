@@ -1,0 +1,205 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://block.io/api/v2/get_balance/?api_key=716d-c0d1-557b-c9e1
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.5.1 (2018-03-29))
+      Accept:
+      - "*/*"
+      Date:
+      - Sun, 06 Jan 2019 15:41:29 GMT
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 06 Jan 2019 15:41:29 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dcc7c2a795ee1c67c02a3c51b9f2984eb1546789289; expires=Mon, 06-Jan-20
+        15:41:29 GMT; path=/; domain=.block.io; HttpOnly
+      - request_method=POST; path=/; secure; HttpOnly; SameSite=Lax
+      Status:
+      - 200 OK
+      Cache-Control:
+      - private, no-cache, no-store, max-age=0, must-revalidate
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15768000
+      - max-age=631152000
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Pragma:
+      - no-cache
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - 0c14440b-d41c-4d9d-bc6e-a2f6dbb8a0e2
+      Access-Control-Allow-Headers:
+      - Origin,Accept,Content-Type,X-Requested-With,X-CSRF-Token
+      Access-Control-Allow-Methods:
+      - GET,POST
+      X-Download-Options:
+      - noopen
+      - noopen
+      X-Runtime:
+      - '0.064197'
+      X-Frame-Options:
+      - DENY
+      X-Content-Type-Options:
+      - nosniff
+      Content-Security-Policy:
+      - 'default-src https: ''self''; base-uri ''self''; block-all-mixed-content;
+        child-src ''self'' *.google.com *.stripe.com; connect-src wss://n.block.io/
+        block.io *.block.io chain.so *.chain.so *.stripe.com *.google-analytics.com;
+        font-src ''self'' fonts.gstatic.com *.google.com *.stripe.com; form-action
+        ''self''; frame-ancestors ''none''; img-src ''self'' *.google.com *.gstatic.com
+        *.google-analytics.com *.stripe.com chain.so *.chain.so live-sochain-blockioinc.netdna-ssl.com
+        data: alive-blockioinc.netdna-ssl.com; manifest-src ''self''; media-src ''none'';
+        object-src ''none''; plugin-types application/x-shockwave-flash; script-src
+        ''self'' *.google.com *.gstatic.com live-sochain-blockioinc.netdna-ssl.com
+        www.google-analytics.com *.stripe.com chain.so *.chain.so ajax.googleapis.com
+        ''unsafe-eval'' alive-blockioinc.netdna-ssl.com; style-src ''self'' chain.so
+        *.chain.so live-sochain-blockioinc.netdna-ssl.com fonts.googleapis.com *.stripe.com
+        translate.googleapis.com ''unsafe-inline'' alive-blockioinc.netdna-ssl.com;
+        upgrade-insecure-requests; worker-src ''self'''
+      Expires:
+      - Fri, 01 Jan 2014 00:00:00 GMT
+      X-Powered-By:
+      - Phusion Passenger 5.3.5
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 494f4a04c8c2ba6c-ATL
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "status" : "success",
+          "data" : {
+            "network" : "BTCTEST",
+            "available_balance" : "0.11583056",
+            "pending_received_balance" : "0.0"
+          }
+        }
+    http_version: 
+  recorded_at: Sun, 06 Jan 2019 15:41:29 GMT
+- request:
+    method: post
+    uri: https://block.io/api/v2/get_balance/?api_key=716d-c0d1-557b-c9e1
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.5.1 (2018-03-29))
+      Accept:
+      - "*/*"
+      Date:
+      - Sun, 06 Jan 2019 15:41:29 GMT
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - __cfduid=dcc7c2a795ee1c67c02a3c51b9f2984eb1546789289; request_method=POST
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 06 Jan 2019 15:41:29 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - private, no-cache, no-store, max-age=0, must-revalidate
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15768000
+      - max-age=631152000
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Pragma:
+      - no-cache
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - b10cd490-6c75-4216-a427-0099a29d6b6e
+      Access-Control-Allow-Headers:
+      - Origin,Accept,Content-Type,X-Requested-With,X-CSRF-Token
+      Access-Control-Allow-Methods:
+      - GET,POST
+      X-Download-Options:
+      - noopen
+      - noopen
+      X-Runtime:
+      - '0.041626'
+      X-Frame-Options:
+      - DENY
+      X-Content-Type-Options:
+      - nosniff
+      Content-Security-Policy:
+      - 'default-src https: ''self''; base-uri ''self''; block-all-mixed-content;
+        child-src ''self'' *.google.com *.stripe.com; connect-src wss://n.block.io/
+        block.io *.block.io chain.so *.chain.so *.stripe.com *.google-analytics.com;
+        font-src ''self'' fonts.gstatic.com *.google.com *.stripe.com; form-action
+        ''self''; frame-ancestors ''none''; img-src ''self'' *.google.com *.gstatic.com
+        *.google-analytics.com *.stripe.com chain.so *.chain.so live-sochain-blockioinc.netdna-ssl.com
+        data: alive-blockioinc.netdna-ssl.com; manifest-src ''self''; media-src ''none'';
+        object-src ''none''; plugin-types application/x-shockwave-flash; script-src
+        ''self'' *.google.com *.gstatic.com live-sochain-blockioinc.netdna-ssl.com
+        www.google-analytics.com *.stripe.com chain.so *.chain.so ajax.googleapis.com
+        ''unsafe-eval'' alive-blockioinc.netdna-ssl.com; style-src ''self'' chain.so
+        *.chain.so live-sochain-blockioinc.netdna-ssl.com fonts.googleapis.com *.stripe.com
+        translate.googleapis.com ''unsafe-inline'' alive-blockioinc.netdna-ssl.com;
+        upgrade-insecure-requests; worker-src ''self'''
+      Expires:
+      - Fri, 01 Jan 2014 00:00:00 GMT
+      X-Powered-By:
+      - Phusion Passenger 5.3.5
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 494f4a059978ba6c-ATL
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "status" : "success",
+          "data" : {
+            "network" : "BTCTEST",
+            "available_balance" : "0.11583056",
+            "pending_received_balance" : "0.0"
+          }
+        }
+    http_version: 
+  recorded_at: Sun, 06 Jan 2019 15:41:29 GMT
+recorded_with: VCR 4.0.0
