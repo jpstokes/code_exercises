@@ -74,8 +74,7 @@ module TelegramBot
                 end
                 bot.api.send_message(
                   chat_id: message.chat.id,
-                  text: "Congrats, #{user.first_name}, you've earned $1 worth \
-                        of bitcoin!")
+                  text: "Congrats, #{user.first_name}, you've earned $1 worth of bitcoin!")
                 bot.api.send_message(
                   chat_id: message.chat.id,
                   text: current_balance_display(result[:user_address])
