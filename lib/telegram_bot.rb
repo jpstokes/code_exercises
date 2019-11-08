@@ -36,6 +36,11 @@ module TelegramBot
       Telegram::Bot::Client.run(CHAT_BOT_TOKEN) do |bot|
         bot.listen do |message|
           begin
+            user = User.new(
+              id: message.from.id,
+              first_name: message.from.first_name,
+              last_name: message.from.last_name)
+              
             case message.text
             when '/testing'
               bot.api.send_message(
@@ -55,11 +60,6 @@ module TelegramBot
                 chat_id: message.chat.id,
                 text: current_balance_display(user.block_io_label))
             else
-              user = User.new(
-                id: message.from.id,
-                first_name: message.from.first_name,
-                last_name: message.from.last_name)
-
               if user_message_counts[user.id].nil?
                 user_message_counts[user.id] = 1
               else
