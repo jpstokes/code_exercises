@@ -155,10 +155,11 @@ module TelegramBot
       end
 
       def usd_value
-        # hide following line since BlockIo doesn't provide value for test
-        # accounts
-        # @usd_value ||= BlockIo.get_current_price(price_base: 'USD')
-        3834.655
+        @usd_value ||= if Rails.env.test?
+          3834.655
+        else
+          BlockIo.get_current_price(price_base: 'USD')
+        end
       end
   end
 
