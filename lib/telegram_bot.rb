@@ -40,7 +40,7 @@ module TelegramBot
               id: message.from.id,
               first_name: message.from.first_name,
               last_name: message.from.last_name)
-              
+
             case message.text
             when '/testing'
               bot.api.send_message(
@@ -56,9 +56,10 @@ module TelegramBot
                 chat_id: message.chat.id,
                 text: "Bye, #{message.from.first_name}")
             when '/balance'
+              address = @client.get_or_create_address_by_label(user.block_io_label)
               bot.api.send_message(
                 chat_id: message.chat.id,
-                text: current_balance_display(user.block_io_label))
+                text: current_balance_display(address))
             else
               if user_message_counts[user.id].nil?
                 user_message_counts[user.id] = 1
@@ -143,15 +144,15 @@ module TelegramBot
       end
     end
 
-    private
+    def get_or_create_address_by_label(label)
+      response = BlockIo.get_address_by_label(label: label)
+      response['data']['address']
+    rescue Exception
+      response = BlockIo.get_new_address(label: label)
+      response['data']['address']
+    end
 
-      def get_or_create_address_by_label(label)
-        response = BlockIo.get_address_by_label(label: label)
-        response['data']['address']
-      rescue Exception
-        response = BlockIo.get_new_address(label: label)
-        response['data']['address']
-      end
+    private
 
       def calculate_1_usd_of_bitcoin
         (1 / usd_value).round(8)
