@@ -4,6 +4,8 @@ require 'telegram/bot'
 
 module TelegramBot
   DEFAULT_LABEL = 'default'
+  CHAT_BOT_TOKEN = ENV['TELEGRAM_BOT_API_TOKEN']
+  USERNAME = 'pleccobot'
 
   class User
     attr_reader :id, :first_name, :last_name, :full_name
@@ -29,10 +31,9 @@ module TelegramBot
     end
 
     def listen_to_telegram_bot
-      token = ENV['TELEGRAM_BOT_API_TOKEN']
       user_message_counts = {}
 
-      Telegram::Bot::Client.run(token) do |bot|
+      Telegram::Bot::Client.run(CHAT_BOT_TOKEN) do |bot|
         bot.listen do |message|
           begin
             case message.text
@@ -96,8 +97,7 @@ module TelegramBot
     private
 
       def current_balance_display(address)
-        "Your current balance: #{@client.current_balance(address, :btc)} BTC \
-        / $#{@client.current_balance(address, :usd)} USD"
+        "Your current balance: #{@client.current_balance(address, :btc)} BTC $#{@client.current_balance(address, :usd)} USD"
       end
   end
 
@@ -155,11 +155,10 @@ module TelegramBot
       end
 
       def usd_value
-        @usd_value ||= if Rails.env.test?
-          3834.655
-        else
-          BlockIo.get_current_price(price_base: 'USD')
-        end
+        # hide following line since BlockIo doesn't provide value for test
+        # accounts
+        #@usd_value ||= BlockIo.get_current_price(price_base: 'USD')
+        3834.655
       end
   end
 
