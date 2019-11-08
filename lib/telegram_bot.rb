@@ -50,6 +50,10 @@ module TelegramBot
               bot.api.send_message(
                 chat_id: message.chat.id,
                 text: "Bye, #{message.from.first_name}")
+            when '/balance'
+              bot.api.send_message(
+                chat_id: message.chat.id,
+                text: current_balance_display(user.block_io_label))
             else
               user = User.new(
                 id: message.from.id,
